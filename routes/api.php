@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\ImageUploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,8 @@ Route::get('/usuarios/todos', [UsuariosController::class, 'getAll']);
 Route::get('/usuario/id/{id}', [UsuariosController::class, 'getByID'])
     ->where('id', '[0-9]+');
 Route::delete('/usuario/eliminar/{id}', [UsuariosController::class, 'delete']);
+
+Route::post('/documentos/crear', [DocumentsController::class, 'store']);
+Route::delete('/documentos/eliminar/{id}', [UsuariosController::class, 'destroy']);
+
+Route::post('/imagen/subir', [ImageUploadController::class, 'uploadImage']);
